@@ -38,7 +38,7 @@ const formatDate = (dateStr) => {
 };
 
 // Imagen de respaldo confiable
-const FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80';
+const FALLBACK_IMAGE = 'https://parquecultural.cl/wp-content/uploads/2022/04/Parque_Cultural_de_Valparaiso-768x513.jpg';
 
 const handleImageError = (e) => {
   if (e.currentTarget.src !== FALLBACK_IMAGE) {
@@ -652,8 +652,14 @@ function HomeView({ parks, categories, activeCategory, setActiveCategory, search
               className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-2xl dark:shadow-slate-950 border border-slate-100 dark:border-slate-700 overflow-hidden cursor-pointer transition-all hover:-translate-y-1 group flex flex-col"
               onClick={() => onSelectPark(park)}
             >
-              <div className="h-48 relative bg-slate-200 dark:bg-slate-700 shrink-0 overflow-hidden">
-                <img src={park.imageUrl} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onError={handleImageError} alt={park.name} />
+              <div className="h-40 md:h-48 relative bg-slate-200 dark:bg-slate-700 shrink-0 overflow-hidden">
+                <img
+                  src={park.imageUrl}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  style={{ maxHeight: '520px' }}
+                  onError={handleImageError}
+                  alt={park.name}
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="absolute top-3 right-3 bg-white dark:bg-slate-900 backdrop-blur-sm px-3 py-1.5 rounded-lg flex items-center gap-1.5 text-sm font-bold shadow-lg border border-white/20 dark:border-slate-700">
                   <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
